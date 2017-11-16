@@ -1,5 +1,5 @@
-baseURL = "/"
-languageCode = "en-us"
+baseURL = "https://joserenan.github.io/visualizacoes/"
+languageCode = "pt-br"
 title = "Renan's Blog"
 publishDir = "docs"
 theme = "hugo-future-imperfect"
