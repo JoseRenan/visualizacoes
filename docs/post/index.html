@@ -1,11 +1,17 @@
+
+
+
+    
+
+
+
+
 <!DOCTYPE HTML>
 
 <html>
     <head>
         
-            
-                <title>Renan&#39;s Blog</title>
-            
+            <title>Posts - Renan&#39;s Blog</title>
         
 
         <meta charset="utf-8" />
@@ -21,13 +27,13 @@
             
         
 
-        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Renan&#39;s Blog"/>
+        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Blog com visualizações de dados para a disciplina de ...visualização de dados."/>
 
-        <meta property="og:title" content="Renan&#39;s Blog" />
+        <meta property="og:title" content="Posts" />
 <meta property="og:description" content="Blog com visualizações de dados para a disciplina de ...visualização de dados." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://joserenan.github.io/visualizacoes/" />
+<meta property="og:url" content="https://joserenan.github.io/visualizacoes/post/" />
 
 
 
@@ -43,7 +49,7 @@
 
 
         
-<meta itemprop="name" content="Renan&#39;s Blog">
+<meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Blog com visualizações de dados para a disciplina de ...visualização de dados.">
 
 
@@ -73,10 +79,9 @@
       <div id="wrapper">
 
     
-    
 <header id="header">
     
-      <h1><a href="/visualizacoes/">Renan&#39;s Blog</a></h1>
+      <h1><a href="/visualizacoes/">post</a></h1>
     
 
     <nav class="links">
@@ -92,10 +97,6 @@
     </nav>
     <nav class="main">
         <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
             
             <li class="search">
                 <a class="fa-search" href="#search">Search</a>
@@ -185,8 +186,9 @@
     
     <div id="main">
         
+        
             <article class="post">
-  <header>
+    <header>
     <div class="title">
         
             <h2><a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a></h2>
@@ -207,146 +209,37 @@
     </div>
 </header>
 
+    
 
-  
+    <p>const maximasUltimaSangria = &ldquo;<a href="https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/maximas-desde-ultima-sangria.json&quot;">https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/maximas-desde-ultima-sangria.json&quot;</a>; const inicioRacionamento = &ldquo;<a href="https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/3e5eba5b41f00d7ddad469a3eb17a4bd5115b160/inicio-racionamento.json&quot;">https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/3e5eba5b41f00d7ddad469a3eb17a4bd5115b160/inicio-racionamento.json&quot;</a>; const comparacaoRacionamento = &ldquo;<a href="https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/9059920352eddc64a6e08c035722c5ca93f9c415/comparacao-racionamento.json&quot;">https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/9059920352eddc64a6e08c035722c5ca93f9c415/comparacao-racionamento.json&quot;</a>; const fimRacionamento = &ldquo;<a href="https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/fim-racionamento.json&quot;">https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/fim-racionamento.json&quot;</a>; vegaEmbed(&lsquo;#maximas&rsquo;, maximasUltimaSangria).catch(console.warn); vegaEmbed(&lsquo;#inicio-racionamento&rsquo;, inicioRacionamento).catch(console.warn); vegaEmbed(&lsquo;#comparacao-racionamento&rsquo;, comparacaoRacionamento).catch(console.warn); vegaEmbed(&lsquo;#fim-racionamento&rsquo;, fimRacionamento).catch(console.warn);  Temos visto ultimamente constantes discussões sobre se devemos ou não voltar com o racionamento na cidade de Campina Grande, a maior consumidora de água do açude de Boqueirão. Para contextualizar melhor, nosso açude vem perdendo volume desde 2011, quando ultrapassou sua capacidade máxima pela última vez.</p>
 
-  
-
-  <div id="content">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.7/vega.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.1/vega-lite.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-rc7/vega-embed.js"></script>
-<script>
-    const maximasUltimaSangria = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/maximas-desde-ultima-sangria.json";
-
-    const inicioRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/3e5eba5b41f00d7ddad469a3eb17a4bd5115b160/inicio-racionamento.json";
-
-    const comparacaoRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/9059920352eddc64a6e08c035722c5ca93f9c415/comparacao-racionamento.json";
-
-    const fimRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/fim-racionamento.json";
-
-    vegaEmbed('#maximas', maximasUltimaSangria).catch(console.warn);
-    vegaEmbed('#inicio-racionamento', inicioRacionamento).catch(console.warn);
-    vegaEmbed('#comparacao-racionamento', comparacaoRacionamento).catch(console.warn);
-    vegaEmbed('#fim-racionamento', fimRacionamento).catch(console.warn);
-</script>
-
-<p>Temos visto ultimamente constantes discussões sobre se devemos ou não voltar com o racionamento na cidade de Campina Grande, a maior consumidora de água do açude de Boqueirão. Para contextualizar melhor, nosso açude vem perdendo volume desde 2011, quando ultrapassou sua capacidade máxima pela última vez. O gráfico a seguir mostra os maiores níveis que o açude atingiu em cada ano desde sua última sangria.</p>
-
-<div id="maximas"></div>
-
-<p>Em 2014 o açude chegou a menos da metade de sua capacidade, o que levou as entidades responsáveis a tomar a decisão de iniciar o racionamento. Como pode ser visto abaixo, o racionamento conseguiu diminuir a queda de nível do açude já desde a primeira metade de 2015.</p>
-
-<div id="inicio-racionamento"></div>
-
-<p>Passados os anos, antes tarde do que nunca, chega no início desse ano a transposição do Rio São Francisco à Boqueirão trazendo, junto com a água, esperança para todos os que viviam da água do açude. Depois de 4 anos de queda, os níveis de volume voltaram a subir como pode se ver no comparativo abaixo.</p>
-
-<div id="comparacao-racionamento"></div>
-
-<p>Esse aumento nos níveis do açude trouxe o debate de se devemos parar ou não o racionamento mesmo sem nem termos chegado aos 10% do volume. Para adiantar a história, na segunda metade do ano saímos do racionamento e ainda não sabemos se haverão consequencias futuras disso e isso divide opiniões até entre os técnicos da área. O gráfico abaixo mostra o crescimento do volume de água após a chegada da transposição, que decai um pouco no mês de setembro, que pode ter ocorrido pelo fim do racionamento, ou não. O que importa agora é que com ou sem racionamento temos de fazer nossa parte e nos conscientizar sobre o uso da água para que não voltemos situação que estávamos poucos meses atrás.</p>
-
-<div id="fim-racionamento"></div>
-
-  </div>
-
-  <footer>
-    <ul class="stats">
+    <footer>
+        <ul class="actions">
+            <li><a href="/visualizacoes/post/primeiro-post/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
     
 
     
     
 </ul>
 
-  </footer>
-
+    </footer>
 </article>
 
+        
 
+        
 <ul class="actions pagination">
     
+        <li><a href="#" class="disabled button big previous">Previous Page</a></li>
+    
 
+    
+        <li><a href="#" class="disabled button big next">Next Page</a></li>
     
 </ul>
 
-
-
-            <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-<li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&text=A%c3%a7ude%2c%20a%c3%a7ude%20meu&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-<li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-<li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&description=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-        </ul>
-    </section>
-</section>
-
-        
     </div>
     
 <section id="sidebar">
