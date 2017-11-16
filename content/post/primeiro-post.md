@@ -37,3 +37,5 @@ Passados os anos, antes tarde do que nunca, chega no início desse ano a transpo
 Esse aumento nos níveis do açude trouxe o debate de se devemos parar ou não o racionamento mesmo sem nem termos chegado aos 10% do volume. Para adiantar a história, na segunda metade do ano saímos do racionamento e ainda não sabemos se haverão consequencias futuras disso e isso divide opiniões até entre os técnicos da área. O gráfico abaixo mostra o crescimento do volume de água após a chegada da transposição, que decai um pouco no mês de setembro, que pode ter ocorrido pelo fim do racionamento, ou não. O que importa agora é que com ou sem racionamento temos de fazer nossa parte e nos conscientizar sobre o uso da água para que não voltemos situação que estávamos poucos meses atrás. 
 
 <div id="fim-racionamento"></div>
+
+Fonte dos dados: ANA e AESA.
