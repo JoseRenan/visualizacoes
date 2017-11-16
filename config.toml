@@ -1,0 +1,61 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Renan's Blog"
+publishDir = "docs"
+theme = "hugo-future-imperfect"
+
+[params]
+  # Sets the meta tag description
+  description          = "Blog com visualizações de dados para a disciplina de ...visualização de dados."
+  # Sets the navbarTitle that appears in the top left of the navigation bar
+  navbarTitle          = "Renan's Blog"
+  socialAppearAtBottom = true
+  socialAppearAtTop    = true
+
+# Optional Params
+  # Sets navbarTitle to match the section of the website
+  dynamicTitles        = true
+  categoriesByCount    = true
+  # Sets Estimated Reading Time to appear in post headers
+  includeReadingTime   = true
+  loadFavicon          = false
+  faviconVersion       = ""
+
+
+  # These are optional params related to the sidebar. They are recommended, but not
+  # required for proper functionality. HTML is supported within the params.
+[params.intro]
+  header    = "José Renan"
+  paragraph = "Continue a visualizar, disse Dory em um universo paralelo"
+  about     = "Graduando em Computação na Universidade Federal de Campina Grande, aluno da disciplina de visualização de dados e apaixonado por programação s2"
+
+  # This appears at the top of the sidebar above params.intro.header.
+  # A width of less than 100px is recommended from a design perspective.
+  [params.intro.pic]
+    src       = "https://avatars3.githubusercontent.com/u/11728746?s=460&v=4"
+    # Sets Image to be a cirlce
+    circle    = false
+    # Sets Image to be Future Imperfect's hexagon
+    imperfect = true
+    alt       = "Renan's photo"
+
+[params.postAmount]
+# Sets the number of recent posts to show in the sidebar. The default value is 5.
+    sidebar = 5
+
+# Sets the menu items in the navigation bar
+# Identifier prepends a Font Awesome icon to the menu item
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  identifier = "fa fa-home"
+  weight = 1
+
+# Sets Social Media icons to appear and link to your account. Value should be your
+# username unless otherwise noted. These are the icons affected by socialAppearAtTop
+# and socialAppearAtBottom.
+[social]
+  github          = "joserenan"
+  stackoverflow   = "5744820"
+  facebook        = "joserenansl"
+  email           = "joserenansl99@gmail.com"
