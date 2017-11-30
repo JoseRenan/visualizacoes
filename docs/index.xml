@@ -6,10 +6,20 @@
     <description>Recent content on Renan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 15 Nov 2017 21:42:58 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 29 Nov 2017 23:34:52 -0300</lastBuildDate>
     
 	<atom:link href="https://joserenan.github.io/visualizacoes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visualização do índice pluviométrico mensal de boqueirão</title>
+      <link>https://joserenan.github.io/visualizacoes/post/lab-2/</link>
+      <pubDate>Wed, 29 Nov 2017 23:34:52 -0300</pubDate>
+      
+      <guid>https://joserenan.github.io/visualizacoes/post/lab-2/</guid>
+      <description>Barras simples 
+   .mychart rect { fill: steelblue; } .mychart rect:hover { fill: goldenrod; } .mychart text { font: 12px sans-serif; text-anchor: left; }  &#34;use strict&#34; function desenhaGrafico(dados) { var alturaSVG = 400, larguraSVG = 700; var margin = { top: 10, right: 20, bottom: 30, left: 45 }, // para descolar a vis das bordas do grafico larguraVis = larguraSVG - margin.left - margin.right, alturaVis = alturaSVG - margin.</description>
+    </item>
     
     <item>
       <title>Açude, açude meu</title>

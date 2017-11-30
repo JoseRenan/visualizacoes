@@ -31,7 +31,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-11-15T21:42:58-03:00"/>
+<meta property="og:updated_time" content="2017-11-29T23:34:52-03:00"/>
 
 
 
@@ -152,6 +152,18 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/visualizacoes/post/lab-2/">Visualização do índice pluviométrico mensal de boqueirão</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-11-29'>
+                                    November 29, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a></h3>
                                 
                                 <time class="published" datetime=
@@ -167,8 +179,8 @@
                                 <h3><a href="/visualizacoes/post/">Posts</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2017-11-15'>
-                                    November 15, 2017</time>
+                                    '2017-11-29'>
+                                    November 29, 2017</time>
                             </header>
                             
                         </article>
@@ -189,7 +201,8 @@
   <header>
     <div class="title">
         
-            <h2><a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a></h2>
+            <h1><a href="/visualizacoes/post/lab-2/">Visualização do índice pluviométrico mensal de boqueirão</a></h1>
+            
         
         
     </div>
@@ -197,8 +210,8 @@
         
 
         <time class="published"
-            datetime='2017-11-15'>
-            November 15, 2017</time>
+            datetime='2017-11-29'>
+            November 29, 2017</time>
         <span class="author"></span>
         
             <p>2 minute read</p>
@@ -213,41 +226,118 @@
   
 
   <div id="content">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.7/vega.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.1/vega-lite.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-rc7/vega-embed.js"></script>
-<script>
-    const maximasUltimaSangria = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/maximas-desde-ultima-sangria.json";
+    <p><title>Barras simples</title>
+<script src="https://d3js.org/d3.v4.min.js"></script></p>
 
-    const inicioRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/3e5eba5b41f00d7ddad469a3eb17a4bd5115b160/inicio-racionamento.json";
+<div class="container">
+    <div class="mychart" id="chart"></div>
+</div>
 
-    const comparacaoRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/9059920352eddc64a6e08c035722c5ca93f9c415/comparacao-racionamento.json";
+<style>
+    .mychart rect {
+        fill: steelblue;
+    }
 
-    const fimRacionamento = "https://gist.githubusercontent.com/JoseRenan/8f65eee8f0eeddc6d64b73e65cce4f02/raw/466ed8750475896be1e8919aa1fd50cfb582d01e/fim-racionamento.json";
+    .mychart rect:hover {
+        fill: goldenrod;
+    }
 
-    vegaEmbed('#maximas', maximasUltimaSangria).catch(console.warn);
-    vegaEmbed('#inicio-racionamento', inicioRacionamento).catch(console.warn);
-    vegaEmbed('#comparacao-racionamento', comparacaoRacionamento).catch(console.warn);
-    vegaEmbed('#fim-racionamento', fimRacionamento).catch(console.warn);
+    .mychart text {
+        font: 12px sans-serif;
+        text-anchor: left;
+    }
+</style>
+
+<script type="text/javascript">
+    "use strict"
+
+    function desenhaGrafico(dados) {
+        var alturaSVG = 400,
+            larguraSVG = 700;
+
+        var margin = {
+                top: 10,
+                right: 20,
+                bottom: 30,
+                left: 45
+            }, // para descolar a vis das bordas do grafico
+            larguraVis = larguraSVG - margin.left - margin.right,
+            alturaVis = alturaSVG - margin.top - margin.bottom;
+
+        /*
+         * Prepara onde adicionaremos a visualizacao
+         */
+        var grafico = d3.select('#chart') // cria elemento <svg> com um <g> dentro
+            .append('svg')
+            .attr('width', larguraVis + margin.left + margin.right)
+            .attr('height', alturaVis + margin.top + margin.bottom)
+            .append('g') // para entender o <g> vá em x03-detalhes-svg.html
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+        // === EDITE DAQUI ===
+        /*
+         * As escalas
+         */
+
+        let min90percentil = d3.min(dados, (d) => parseInt(d.noventa_percentil));
+        let max90percentil = d3.max(dados, (d) => parseInt(d.noventa_percentil));
+
+        let min10percentil = d3.min(dados, (d) => parseInt(d.dez_percentil));
+        let max10percentil = d3.max(dados, (d) => parseInt(d.dez_percentil));
+
+        console.log()
+        var x = d3.scaleLinear()
+            .domain([min90percentil, max90percentil])
+            .range([0, larguraVis]);
+
+        var y = d3.scaleLinear()
+            .domain([min10percentil, max10percentil + 1])
+            .rangeRound([alturaVis, 0]);
+
+        let cor = d3.scaleLinear()
+            .domain([d3.min(dados, (d) => d.mediana), d3.max(dados, (d) => d.mediana)])
+            .range(["#8cb0ff", "#0050ff"])
+            .clamp(true);
+
+        // === ATÉ DAQUI ===
+
+        /*
+         * As marcas
+         */
+        grafico.selectAll('g')
+            .data(dados)
+            .enter()
+            .append('circle')
+            .attr('cx', d => x(d.noventa_percentil)) // usando a escala definida acima
+            .attr('cy', d => y(d.dez_percentil))
+            .attr('r', 10)
+            .attr('fill', d => cor(d.mediana));
+
+        /*
+         * Os eixos
+         */
+        grafico.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + alturaVis + ")")
+            .call(d3.axisBottom(x)); // magica do d3: gera eixo a partir da escala
+
+        grafico.append('g')
+            .attr('transform', 'translate(0,0)')
+            .call(d3.axisLeft(y)) // gera eixo a partir da escala
+
+        grafico.append("text")
+            .attr("transform", "translate(-30," + (alturaVis + margin.top) / 2 + ") rotate(-90)")
+            .text("10-percentil");
+
+        grafico.append("text")
+            .attr("transform", "translate(" + ((larguraVis)/2) + "," + (alturaVis + 30) + " )")
+            .text("90-percentil");
+    }
+
+    d3.csv('/visualizacoes/post/static/boqueirao-por-mes.csv', function (dados) {
+        desenhaGrafico(dados);
+    });
 </script>
-
-<p>Temos visto ultimamente constantes discussões sobre se devemos ou não voltar com o racionamento na cidade de Campina Grande, a maior consumidora de água do açude de Boqueirão. Para contextualizar melhor, nosso açude vem perdendo volume desde 2011, quando ultrapassou sua capacidade máxima pela última vez. O gráfico a seguir mostra os maiores níveis que o açude atingiu em cada ano desde sua última sangria.</p>
-
-<div id="maximas"></div>
-
-<p>Em 2014 o açude chegou a menos da metade de sua capacidade, o que levou as entidades responsáveis a tomar a decisão de iniciar o racionamento. Como pode ser visto abaixo, o racionamento conseguiu diminuir a queda de nível do açude já desde a primeira metade de 2015.</p>
-
-<div id="inicio-racionamento"></div>
-
-<p>Passados os anos, antes tarde do que nunca, chega no início desse ano a transposição do Rio São Francisco à Boqueirão trazendo, junto com a água, esperança para todos os que viviam da água do açude. Depois de 4 anos de queda, os níveis de volume voltaram a subir como pode se ver no comparativo abaixo.</p>
-
-<div id="comparacao-racionamento"></div>
-
-<p>Esse aumento nos níveis do açude trouxe o debate de se devemos parar ou não o racionamento mesmo sem nem termos chegado aos 10% do volume. Para adiantar a história, na segunda metade do ano saímos do racionamento e ainda não sabemos se haverão consequencias futuras disso e isso divide opiniões até entre os técnicos da área. O gráfico abaixo mostra o crescimento do volume de água após a chegada da transposição, que decai um pouco no mês de setembro, que pode ter ocorrido pelo fim do racionamento, ou não. O que importa agora é que com ou sem racionamento temos de fazer nossa parte e nos conscientizar sobre o uso da água para que não voltemos situação que estávamos poucos meses atrás.</p>
-
-<div id="fim-racionamento"></div>
-
-<p>Fonte dos dados: ANA e AESA.</p>
 
   </div>
 
@@ -266,6 +356,9 @@
 
 <ul class="actions pagination">
     
+        <li><a href="/visualizacoes/post/primeiro-post/"
+                class="button big previous">Açude, açude meu</a></li>
+    
 
     
 </ul>
@@ -282,7 +375,7 @@
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&text=A%c3%a7ude%2c%20a%c3%a7ude%20meu&via=" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f&text=Visualiza%c3%a7%c3%a3o%20do%20%c3%adndice%20pluviom%c3%a9trico%20mensal%20de%20boqueir%c3%a3o&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -290,7 +383,7 @@
 
 
 <li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -298,7 +391,7 @@
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -306,7 +399,7 @@
 
 
 <li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f&title=Visualiza%c3%a7%c3%a3o%20do%20%c3%adndice%20pluviom%c3%a9trico%20mensal%20de%20boqueir%c3%a3o" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -314,7 +407,7 @@
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f&title=Visualiza%c3%a7%c3%a3o%20do%20%c3%adndice%20pluviom%c3%a9trico%20mensal%20de%20boqueir%c3%a3o" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -322,7 +415,7 @@
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&title=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f&title=Visualiza%c3%a7%c3%a3o%20do%20%c3%adndice%20pluviom%c3%a9trico%20mensal%20de%20boqueir%c3%a3o" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -330,7 +423,7 @@
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f&description=A%c3%a7ude%2c%20a%c3%a7ude%20meu" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f&description=Visualiza%c3%a7%c3%a3o%20do%20%c3%adndice%20pluviom%c3%a9trico%20mensal%20de%20boqueir%c3%a3o" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -338,7 +431,7 @@
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2fprimeiro-post%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2flab-2%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -469,6 +562,20 @@
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/visualizacoes/post/lab-2/">Visualização do índice pluviométrico mensal de boqueirão</a>
+              </h3>
+              
+              <time class="published" datetime='2017-11-29'>
+                November 29, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a>
               </h3>
               
@@ -486,8 +593,8 @@
                 <a href="/visualizacoes/post/">Posts</a>
               </h3>
               
-              <time class="published" datetime='2017-11-15'>
-                November 15, 2017
+              <time class="published" datetime='2017-11-29'>
+                November 29, 2017
               </time>
             </header>
             

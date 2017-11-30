@@ -1,7 +1,7 @@
 ---
 title: "Visualização do índice pluviométrico mensal de boqueirão"
 date: 2017-11-29T23:34:52-03:00
-draft: true
+draft: false
 ---
 
 <title>Barras simples</title>
@@ -32,7 +32,7 @@ draft: true
 
     function desenhaGrafico(dados) {
         var alturaSVG = 400,
-            larguraSVG = 900;
+            larguraSVG = 700;
 
         var margin = {
                 top: 10,
