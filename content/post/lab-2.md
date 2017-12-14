@@ -1,119 +1,79 @@
 ---
-title: "Visualização do índice pluviométrico mensal de boqueirão"
-date: 2017-11-29T23:34:52-03:00
-draft: false
+title: "Lab 2"
+date: 2017-12-12T09:18:37-03:00
+draft: true
 ---
 
-<title>Barras simples</title>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
-
 <div class="container">
-    <div class="mychart" id="chart"></div>
+    <svg class="mychart1" id="chart1"></svg>
 </div>
 
-<style>
-    .mychart rect {
-        fill: steelblue;
-    }
+<div class="container">
+    <svg class="mychart2" id="chart2"></svg>
+</div>
 
-    .mychart rect:hover {
-        fill: goldenrod;
-    }
-
-    .mychart text {
-        font: 12px sans-serif;
-        text-anchor: left;
-    }
-</style>
+<div class="container">
+    <svg class="mychart3" id="chart3"></svg>
+</div>
 
 <script type="text/javascript">
     "use strict"
 
-    function desenhaGrafico(dados) {
-        var alturaSVG = 400,
-            larguraSVG = 700;
+    function desenhaGrafico(data) {
 
-        var margin = {
-                top: 10,
-                right: 20,
-                bottom: 30,
-                left: 45
-            }, // para descolar a vis das bordas do grafico
-            larguraVis = larguraSVG - margin.left - margin.right,
-            alturaVis = alturaSVG - margin.top - margin.bottom;
+        var margin = {top: 20, right: 20, bottom: 40, left: 50},
+            width = 1000 - margin.left - margin.right,
+            height = 350 - margin.top - margin.bottom;
 
-        /*
-         * Prepara onde adicionaremos a visualizacao
-         */
-        var grafico = d3.select('#chart') // cria elemento <svg> com um <g> dentro
-            .append('svg')
-            .attr('width', larguraVis + margin.left + margin.right)
-            .attr('height', alturaVis + margin.top + margin.bottom)
-            .append('g') // para entender o <g> vá em x03-detalhes-svg.html
-            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        var parseTime = d3.timeParse("%H:%M");
+        var converteLista = data.map(function(d) {
+            return parseTime(d.key);
+        })
 
-        // === EDITE DAQUI ===
-        /*
-         * As escalas
-         */
+        console.log(data);
 
-        let min90percentil = d3.min(dados, (d) => parseInt(d.noventa_percentil));
-        let max90percentil = d3.max(dados, (d) => parseInt(d.noventa_percentil));
-
-        let min10percentil = d3.min(dados, (d) => parseInt(d.dez_percentil));
-        let max10percentil = d3.max(dados, (d) => parseInt(d.dez_percentil));
-
-        console.log()
-        var x = d3.scaleLinear()
-            .domain([min90percentil, max90percentil])
-            .range([0, larguraVis]);
+        var x = d3.scaleTime()
+            .domain([d3.min(d3.values(converteLista)), d3.max(d3.values(converteLista))])
+            .rangeRound([0, width]);
 
         var y = d3.scaleLinear()
-            .domain([min10percentil, max10percentil + 1])
-            .rangeRound([alturaVis, 0]);
+            .domain([0, d3.max(data, function(d) { return d.value; })])
+            .range([height, 0]);
+        
+        var area = d3.area()
+            .x(function(d) { return x(parseTime(d.key)); })
+            .y0(height)
+            .y1(function(d) { return y(d.value); });
+        
+        var svg = d3.select("#chart1")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        let cor = d3.scaleLinear()
-            .domain([d3.min(dados, (d) => d.mediana), d3.max(dados, (d) => d.mediana)])
-            .range(["#8cb0ff", "#0050ff"])
-            .clamp(true);
+        svg.append("path")
+            .datum(data)
+            .attr("class", "area")
+            .attr("d", area);
 
-        // === ATÉ DAQUI ===
-
-        /*
-         * As marcas
-         */
-        grafico.selectAll('g')
-            .data(dados)
-            .enter()
-            .append('circle')
-            .attr('cx', d => x(d.noventa_percentil)) // usando a escala definida acima
-            .attr('cy', d => y(d.dez_percentil))
-            .attr('r', 10)
-            .attr('fill', d => cor(d.mediana));
-
-        /*
-         * Os eixos
-         */
-        grafico.append("g")
+        svg.append("g")
             .attr("class", "x axis")
-            .attr("transform", "translate(0," + alturaVis + ")")
-            .call(d3.axisBottom(x)); // magica do d3: gera eixo a partir da escala
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%H:%M")));
 
-        grafico.append('g')
-            .attr('transform', 'translate(0,0)')
-            .call(d3.axisLeft(y)) // gera eixo a partir da escala
-
-        grafico.append("text")
-            .attr("transform", "translate(-30," + (alturaVis + margin.top) / 2 + ") rotate(-90)")
-            .text("10-percentil");
-
-        grafico.append("text")
-            .attr("transform", "translate(" + ((larguraVis)/2) + "," + (alturaVis + 30) + " )")
-            .text("90-percentil");
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(d3.axisLeft(y));
+        
     }
 
-    d3.csv('/visualizacoes/post/static/boqueirao-por-mes.csv', function (dados) {
-        desenhaGrafico(dados);
+    d3.csv('https://raw.githubusercontent.com/luizaugustomm/pessoas-no-acude/master/dados/processados/dados.csv', function (dados) {
+        var data = d3.nest()
+            .key(d => d.horario_inicial)
+            .rollup(v => d3.mean(v, d => d.total_pedestres))
+            .entries(dados);
+        desenhaGrafico(data);
     });
 </script>
