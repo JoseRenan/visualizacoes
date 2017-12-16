@@ -6,17 +6,27 @@
     <description>Recent content on Renan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 29 Nov 2017 23:34:52 -0300</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2017 09:18:37 -0300</lastBuildDate>
     
 	<atom:link href="https://joserenan.github.io/visualizacoes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Visualização do índice pluviométrico mensal de boqueirão</title>
+      <title>Caminhos de Campina</title>
       <link>https://joserenan.github.io/visualizacoes/post/lab-2/</link>
-      <pubDate>Wed, 29 Nov 2017 23:34:52 -0300</pubDate>
+      <pubDate>Tue, 12 Dec 2017 09:18:37 -0300</pubDate>
       
       <guid>https://joserenan.github.io/visualizacoes/post/lab-2/</guid>
+      <description>Campina Grande possui alguns pontos turisticos e um dos mais conhecidos é o açude velho, que geralmente faz parte do caminho do trabalho dos campinenses. O gráfico abaixo aproxima a quantidade de pessoas que passam pelo açude velho diariamente.  
+O açude velho também é o lugar preferido de muita gente que tem o hábito de fazer caminhadas. O gráfico abaixo mostra quantas pessoas por momento do dia estão a pé passando pelo açude velho.</description>
+    </item>
+    
+    <item>
+      <title>Visualização do índice pluviométrico mensal de boqueirão</title>
+      <link>https://joserenan.github.io/visualizacoes/post/lab-1/</link>
+      <pubDate>Wed, 29 Nov 2017 23:34:52 -0300</pubDate>
+      
+      <guid>https://joserenan.github.io/visualizacoes/post/lab-1/</guid>
       <description>Barras simples 
    .mychart rect { fill: steelblue; } .mychart rect:hover { fill: goldenrod; } .mychart text { font: 12px sans-serif; text-anchor: left; }  &#34;use strict&#34; function desenhaGrafico(dados) { var alturaSVG = 400, larguraSVG = 700; var margin = { top: 10, right: 20, bottom: 30, left: 45 }, // para descolar a vis das bordas do grafico larguraVis = larguraSVG - margin.left - margin.right, alturaVis = alturaSVG - margin.</description>
     </item>
