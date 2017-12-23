@@ -239,6 +239,21 @@
   <div id="content">
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
+<style>
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 48px;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+</style>
+
 <p>Campina Grande possui alguns pontos turisticos e um dos mais conhecidos é o açude velho, que geralmente faz parte do caminho do trabalho dos campinenses. O gráfico abaixo aproxima a quantidade de pessoas que passam pelo açude velho diariamente.
 <div class="container">
     <svg class="mychart3" id="chart3"></svg>
@@ -246,8 +261,17 @@
 
 <p>O açude velho também é o lugar preferido de muita gente que tem o hábito de fazer caminhadas. O gráfico abaixo mostra quantas pessoas por momento do dia estão a pé passando pelo açude velho.</p>
 
+<p>Selecione nos campos abaixo o range de tempo que deseja analisar:</p>
+
 <div class="container">
-    <svg class="mychart1" id="chart1"></svg>
+    <select id="select1">
+        <option>Selecione o inicio do range</option>
+    </select>
+    <select id="select2">
+        <option>Selecione o fim do range</option>
+    </select>
+    <button id="button1" onclick="updateChart1()">Atualizar gráfico</button>
+    <div class="mychart3" id="chart1"></div>
 </div>
 
 <p>E como poder esquecer dos nossos PETs? O gráfico abaixo mostra os pontos mais visitados por pessoas acompanhadas dos seus cachorros. Sendo o verde o Bob&rsquo;s, o laranja o monumento de jackson do pandeiro e o roxo o monumento dos burrinhos.</p>
@@ -261,38 +285,62 @@
 
     function desenhaGrafico1(data) {
 
+        var parseTime = d3.timeParse("%H:%M");
+
+        d3.select("#svgChart1").remove();
+        d3.select("#chart1").append("svg").attr("id", "svgChart1");
+
+        var sel1 = document.getElementById('select1');
+        var valsel1 = sel1.options[sel1.selectedIndex].value;
+
+        var sel2 = document.getElementById('select2');
+        var valsel2 = sel2.options[sel2.selectedIndex].value;
+
+        var newData = data.filter(d => parseTime(d.key) >= parseTime(valsel1) && parseTime(d.key) <= parseTime(valsel2));
+        
+        if (newData.length == 0) newData = data;
+
         var margin = {top: 20, right: 20, bottom: 40, left: 50},
             width = 700 - margin.left - margin.right,
             height = 350 - margin.top - margin.bottom;
 
-        var parseTime = d3.timeParse("%H:%M");
-        var converteLista = data.map(function(d) {
+        var converteLista = newData.map(function(d) {
             return parseTime(d.key);
         })
 
-        console.log(data);
+        console.log(newData);
 
         var x = d3.scaleTime()
             .domain([d3.min(d3.values(converteLista)), d3.max(d3.values(converteLista))])
             .rangeRound([0, width]);
 
         var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function(d) { return d.value; })])
+            .domain([0, d3.max(newData, function(d) { return d.value; })])
             .range([height, 0]);
         
         var area = d3.area()
             .x(function(d) { return x(parseTime(d.key)); })
             .y0(height)
             .y1(function(d) { return y(d.value); });
-        
-        var svg = d3.select("#chart1")
+
+        var select1 = d3.select("#select1");
+        data.forEach((e) => {
+            select1.append("option").text(e.key).attr("value", e.key);
+        });
+
+        var select1 = d3.select("#select2");
+        data.forEach((e) => {
+            select1.append("option").text(e.key).attr("value", e.key);
+        });
+
+        var svg = d3.select("#svgChart1")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         svg.append("path")
-            .datum(data)
+            .datum(newData)
             .attr("fill", "steelblue")
             .attr("stroke", "steelblue")
             .attr("stroke-linejoin", "round")
@@ -325,8 +373,6 @@
         var converteLista = data1.map(function(d) {
             return parseTime(d.key);
         })
-
-        console.log(data1);
 
         var x = d3.scaleTime()
             .domain([d3.min(d3.values(converteLista)), d3.max(d3.values(converteLista))])
@@ -386,7 +432,6 @@
     }
 
     function desenhaGrafico3(dados) {
-        console.log(dados);
         var alturaSVG = 350, larguraSVG = 700;
         var margin = {top: 10, right: 20, bottom:30, left: 45},
           larguraVis = larguraSVG - margin.left - margin.right,
@@ -416,6 +461,10 @@
 
       // === ATÉ DAQUI ===
 
+      var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
       /*
        * As marcas
        */
@@ -426,7 +475,20 @@
                   .attr('x', d => x(d.nome))   // usando a escala definida acima
                   .attr('width', x.bandwidth()) // largura da barra via escala
                   .attr('y', d => y(d.valor))
-                  .attr('height', (d) => alturaVis - y(d.valor)); // de cabeca para baixo
+                  .attr('height', (d) => alturaVis - y(d.valor))
+                    .on("mouseover", (d) => {
+                        div.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        div.html(d.nome + "<br/>" + d.valor)
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function(d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
 
       /*
        * Os eixos
@@ -455,14 +517,23 @@
             .rollup(v => d3.mean(v, d => d.pedestres_com_cachorro))
             .entries(dados);
 
-        console.log(totalCachorroLocal);
-
         desenhaGrafico2(totalCachorroLocal[0], totalCachorroLocal[1], totalCachorroLocal[2]);
         desenhaGrafico3([
             {nome: "Motorizados", valor: d3.sum(dados, d => d.total_motorizados)},
             {nome: "Ciclistas", valor: d3.sum(dados, d => d.total_ciclistas)},
             {nome: "Pedestres", valor: d3.sum(dados, d => d.total_pedestres)}]);
     });
+
+    function updateChart1 () {
+        console.log("huehue");
+        d3.csv('https://raw.githubusercontent.com/luizaugustomm/pessoas-no-acude/master/dados/processados/dados.csv', function (dados) {
+            var totalPedestresPor15Min = d3.nest()
+                .key(d => d.horario_inicial)
+                .rollup(v => d3.mean(v, d => d.total_pedestres))
+                .entries(dados);
+            desenhaGrafico1(totalPedestresPor15Min); 
+        });
+    }
 </script>
 
   </div>
