@@ -1,0 +1,834 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Educacao no Brasil</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.36.1" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="Blog com visualizações de dados para a disciplina de ...visualização de dados.">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Educacao no Brasil"/>
+<meta name="twitter:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
+     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100])."/>
+
+        <meta property="og:title" content="Educacao no Brasil" />
+<meta property="og:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
+     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100])." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joserenan.github.io/visualizacoes/post/educacao/" />
+
+
+
+<meta property="article:published_time" content="2018-02-27T00:38:53-03:00"/>
+
+<meta property="article:modified_time" content="2018-02-27T00:38:53-03:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Educacao no Brasil">
+<meta itemprop="description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
+     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).">
+
+
+<meta itemprop="datePublished" content="2018-02-27T00:38:53-03:00" />
+<meta itemprop="dateModified" content="2018-02-27T00:38:53-03:00" />
+<meta itemprop="wordCount" content="230">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/visualizacoes/css/main.css">
+            <link rel="stylesheet" href="/visualizacoes/css/add-on.css">
+        
+
+        
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/visualizacoes/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/visualizacoes/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://joserenan.github.io/visualizacoes/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://joserenan.github.io/visualizacoes/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/visualizacoes/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/visualizacoes/post/educacao/">Educacao no Brasil</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-27'>
+                                    February 27, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/visualizacoes/post/paraiba/">Paraíba</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-02-20'>
+                                    February 20, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/visualizacoes/post/lab-2/">Caminhos de Campina</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-12-12'>
+                                    December 12, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/visualizacoes/post/lab-1/">Visualização do índice pluviométrico mensal de boqueirão</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-11-29'>
+                                    November 29, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-11-15'>
+                                    November 15, 2017</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            "/post/"
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f&text=Educacao%20no%20Brasil&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f&title=Educacao%20no%20Brasil" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f&title=Educacao%20no%20Brasil" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f&title=Educacao%20no%20Brasil" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f&description=Educacao%20no%20Brasil" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fjoserenan.github.io%2fvisualizacoes%2fpost%2feducacao%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/visualizacoes/post/educacao/">Educacao no Brasil</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-02-27'>
+            February 27, 2018</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+
+  
+
+  <div id="content">
+    <style>
+
+.cidades {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+path:hover, path.highlighted {
+  fill: tomato;
+}
+
+div.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-family:"avenir next", Arial, sans-serif;
+  padding: 4px 8px;
+  display: none;
+}
+
+</style>
+
+<p><svg width="1000" height="600"></svg></p>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="/visualizacoes/post/static/legenda-d3-cor.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var path = d3.geoPath();
+
+// a escala de cores
+var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).range(d3.schemeOranges[6]);
+
+// função aux definida em legenda-d3-cor.js
+desenhaLegenda(0, 100, color, "Professores do ensino básico com graduação em 2016 (%)")
+
+d3.queue()
+    .defer(d3.json, "/visualizacoes/post/static/br-tracts-topo.json")
+    .await(ready);
+
+function ready(error, dados) {
+  if (error) throw error;
+
+   var cidades = topojson.feature(dados, dados.objects.tracts).features;
+
+  svg.append("g")
+      .attr("class", "cidades")
+    .selectAll("path")
+    .data(cidades)
+    .enter()
+    .append("path")
+      .attr("fill", d => {valor = d.properties.porcent2016; return valor === "NA" ? '#e0e0eb' : color(valor)})
+      .attr("d", path)
+      .on("mouseover",showTooltip)
+      .on("mousemove",moveTooltip)
+      .on("mouseout",hideTooltip)
+}
+
+// ZOOM
+
+//create zoom handler
+var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+
+//specify what to do when zoom event listener is triggered
+function zoom_actions(){
+ d3.selectAll("path").attr("transform", d3.event.transform);
+}
+
+//add zoom behaviour to the svg element
+//same as svg.call(zoom_handler);
+zoom_handler(svg);
+
+
+// TOOLTIP
+
+//Create a tooltip, hidden at the start
+var tooltip = d3.select("body").append("div").attr("class","tooltip");
+//Position of the tooltip relative to the cursor
+var tooltipOffset = {x: 5, y: -25};
+
+function showTooltip(d) {
+  moveTooltip();
+
+  tooltip.style("display","block")
+      .text(d.properties.cidade + ": " + d.properties.porcent2016 + "%");
+}
+
+//Move the tooltip to track the mouse
+function moveTooltip() {
+  tooltip.style("top",(d3.event.pageY+tooltipOffset.y)+"px")
+      .style("left",(d3.event.pageX+tooltipOffset.x)+"px");
+}
+
+//Create a tooltip, hidden at the start
+function hideTooltip() {
+  tooltip.style("display","none");
+}
+
+</script>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+
+    
+    
+</ul>
+
+  </footer>
+
+</article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/visualizacoes/post/paraiba/"
+                class="button big previous">Paraíba</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/visualizacoes/' class="logo"><img src="https://avatars3.githubusercontent.com/u/11728746?s=460&amp;v=4" alt="Renan&#39;s photo" /></a>
+      
+    
+    
+      <header>
+        <h2>José Renan</h2>
+        <p>Continue a visualizar, disse Dory em um universo paralelo</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+        
+  <li><a href="//github.com/joserenan" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/5744820" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/joserenansl" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:joserenansl99@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section id="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/visualizacoes/post/educacao/">Educacao no Brasil</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-27'>
+                February 27, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/visualizacoes/post/paraiba/">Paraíba</a>
+              </h3>
+              
+              <time class="published" datetime='2018-02-20'>
+                February 20, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/visualizacoes/post/lab-2/">Caminhos de Campina</a>
+              </h3>
+              
+              <time class="published" datetime='2017-12-12'>
+                December 12, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/visualizacoes/post/lab-1/">Visualização do índice pluviométrico mensal de boqueirão</a>
+              </h3>
+              
+              <time class="published" datetime='2017-11-29'>
+                November 29, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/visualizacoes/post/primeiro-post/">Açude, açude meu</a>
+              </h3>
+              
+              <time class="published" datetime='2017-11-15'>
+                November 15, 2017
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            "/post/"
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+    </section>
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h1>
+      <p>Graduando em Computação na Universidade Federal de Campina Grande, aluno da disciplina de visualização de dados e apaixonado por programação s2</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+        
+  <li><a href="//github.com/joserenan" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+  <li><a href="//stackoverflow.com/users/5744820" target="_blank" title="Stack Overflow" class="fa fa-stack-overflow"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//facebook.com/joserenansl" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:joserenansl99@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Renan&#39;s Blog
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/visualizacoes/js/util.js"></script>
+      <script src="/visualizacoes/js/main.js"></script>
+      <script src="/visualizacoes/js/backToTop.js"></script>
+    
+
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
