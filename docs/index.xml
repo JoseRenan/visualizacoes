@@ -17,8 +17,7 @@
       <pubDate>Tue, 27 Feb 2018 00:38:53 -0300</pubDate>
       
       <guid>https://joserenan.github.io/visualizacoes/post/educacao/</guid>
-      <description>.cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
-     var svg = d3.select(&#34;svg&#34;), width = +svg.attr(&#34;width&#34;), height = +svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).</description>
+      <description>.cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  O mapa abaixo mostra, para todas as cidades do Brasil, a porcentagem de professores da educação básica que possuem nível superior. Com o mapa é possível notar que o centro-sul do país possui uma cor alaranjada mais forte e mais concentrada, indicando que possui mais professores com nível superior, seja licenciatura, bacharelado, ou qualquer outro.</description>
     </item>
     
     <item>

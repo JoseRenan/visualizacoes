@@ -23,12 +23,10 @@
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Educacao no Brasil"/>
-<meta name="twitter:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
-     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100])."/>
+<meta name="twitter:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  O mapa abaixo mostra, para todas as cidades do Brasil, a porcentagem de professores da educação básica que possuem nível superior. Com o mapa é possível notar que o centro-sul do país possui uma cor alaranjada mais forte e mais concentrada, indicando que possui mais professores com nível superior, seja licenciatura, bacharelado, ou qualquer outro."/>
 
         <meta property="og:title" content="Educacao no Brasil" />
-<meta property="og:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
-     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100])." />
+<meta property="og:description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  O mapa abaixo mostra, para todas as cidades do Brasil, a porcentagem de professores da educação básica que possuem nível superior. Com o mapa é possível notar que o centro-sul do país possui uma cor alaranjada mais forte e mais concentrada, indicando que possui mais professores com nível superior, seja licenciatura, bacharelado, ou qualquer outro." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://joserenan.github.io/visualizacoes/post/educacao/" />
 
@@ -50,13 +48,12 @@
 
         
 <meta itemprop="name" content="Educacao no Brasil">
-<meta itemprop="description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  
-     var svg = d3.select(&#34;svg&#34;), width = &#43;svg.attr(&#34;width&#34;), height = &#43;svg.attr(&#34;height&#34;); var path = d3.geoPath(); // a escala de cores var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).">
+<meta itemprop="description" content=".cidades { fill: none; stroke: #fff; stroke-linejoin: round; } path:hover, path.highlighted { fill: tomato; } div.tooltip { position: absolute; background-color: white; border: 1px solid black; color: black; font-family:&#34;avenir next&#34;, Arial, sans-serif; padding: 4px 8px; display: none; }  O mapa abaixo mostra, para todas as cidades do Brasil, a porcentagem de professores da educação básica que possuem nível superior. Com o mapa é possível notar que o centro-sul do país possui uma cor alaranjada mais forte e mais concentrada, indicando que possui mais professores com nível superior, seja licenciatura, bacharelado, ou qualquer outro.">
 
 
 <meta itemprop="datePublished" content="2018-02-27T00:38:53-03:00" />
 <meta itemprop="dateModified" content="2018-02-27T00:38:53-03:00" />
-<meta itemprop="wordCount" content="230">
+<meta itemprop="wordCount" content="314">
 
 
 
@@ -372,6 +369,10 @@ div.tooltip {
 }
 
 </style>
+ 
+
+<p>O mapa abaixo mostra, para todas as cidades do Brasil, a porcentagem de professores da educação básica
+que possuem nível superior. Com o mapa é possível notar que o centro-sul do país possui uma cor alaranjada mais forte e mais concentrada, indicando que possui mais professores com nível superior, seja licenciatura, bacharelado, ou qualquer outro. Já no norte-nordeste é possível perceber que existem muitas áreas com concentração de laranja forte, porém elas estão espalhadas pela região, possuindo mais áreas com laranja mais claro.</p>
 
 <p><svg width="1000" height="600"></svg></p>
 
@@ -388,10 +389,10 @@ var svg = d3.select("svg"),
 var path = d3.geoPath();
 
 // a escala de cores
-var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).range(d3.schemeOranges[6]);
+var color = d3.scaleThreshold().domain([20, 40, 60, 80, 100]).range(d3.schemeOranges[5]);
 
 // função aux definida em legenda-d3-cor.js
-desenhaLegenda(0, 100, color, "Professores do ensino básico com graduação em 2016 (%)")
+desenhaLegenda(0, 100, color, "Professores do ensino básico com nível superior em 2016 (%)")
 
 d3.queue()
     .defer(d3.json, "/visualizacoes/post/static/br-tracts-topo.json")
