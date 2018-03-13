@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://joserenan.github.io/visualizacoes/post/redes/</loc>
+    <lastmod>2018-03-12T23:27:09-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://joserenan.github.io/visualizacoes/post/educacao/</loc>
     <lastmod>2018-02-27T00:38:53-03:00</lastmod>
   </url>
@@ -34,13 +39,13 @@
   
   <url>
     <loc>https://joserenan.github.io/visualizacoes/post/</loc>
-    <lastmod>2018-02-27T00:38:53-03:00</lastmod>
+    <lastmod>2018-03-12T23:27:09-03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://joserenan.github.io/visualizacoes/</loc>
-    <lastmod>2018-02-27T00:38:53-03:00</lastmod>
+    <lastmod>2018-03-12T23:27:09-03:00</lastmod>
     <priority>0</priority>
   </url>
   

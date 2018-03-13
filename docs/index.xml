@@ -6,10 +6,19 @@
     <description>Recent content on Renan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Tue, 27 Feb 2018 00:38:53 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 12 Mar 2018 23:27:09 -0300</lastBuildDate>
     
 	<atom:link href="https://joserenan.github.io/visualizacoes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Alô São Luísss!!!</title>
+      <link>https://joserenan.github.io/visualizacoes/post/redes/</link>
+      <pubDate>Mon, 12 Mar 2018 23:27:09 -0300</pubDate>
+      
+      <guid>https://joserenan.github.io/visualizacoes/post/redes/</guid>
+      <description>.node { fill: #ccc; stroke: #fff; stroke-width: 2px; } .link { stroke: #999; stroke-opacity: 0.3; }  Abaixo vemos um grafo de bandas e artistas relacionados à banda Tropykália, surgida no ano de 1997 com o sucesso &amp;ldquo;Não dá prazer&amp;rdquo; que a levou para vários estados do país. Seu primeiro DVD foi em 2005 em São Luís - MA com um público de mais de 50 mil pessoas e a incrível abertura que inicia com um grito que intitula este post: &amp;ldquo;Alô São Luís!</description>
+    </item>
     
     <item>
       <title>Educacao no Brasil</title>
